@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: WP Plugin Template
-Plugin URI: https://github.com/fyaconiello/wp_plugin_template
-Description: A simple wordpress plugin template
-Version: 1.0
-Author: Francis Yaconiello
-Author URI: http://www.yaconiello.com
+Plugin Name: WP orph3us Captcha Plugin
+Plugin URI: https://github.com/0rph3us/wp_orph3us-captcha
+Description: A alternative free Captcha Plugin
+Version: 0.1
+Author: Michael Rennecke
+Author URI: http://0rph3us.net/
 License: GPL2
 */
 /*
-Copyright 2012  Francis Yaconiello  (email : francis@yaconiello.com)
+Copyright 2014  Michael Rennecke  (email : michael.rennecke@gmail.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
@@ -25,9 +25,9 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if(!class_exists('WP_Plugin_Template'))
+if(!class_exists('WP_Orpheus_Captcha'))
 {
-	class WP_Plugin_Template
+	class WP_Orpheus_Captcha
 	{
 		/**
 		 * Construct the plugin object
@@ -36,7 +36,7 @@ if(!class_exists('WP_Plugin_Template'))
 		{
         	// Initialize Settings
             require_once(sprintf("%s/settings.php", dirname(__FILE__)));
-            $WP_Plugin_Template_Settings = new WP_Plugin_Template_Settings();
+            $WP_Orpheus_Captcha_Settings = new WP_Orpheus_Captcha_Settings();
         	
         	// Register custom post types
             require_once(sprintf("%s/post-types/post_type_template.php", dirname(__FILE__)));
@@ -58,25 +58,25 @@ if(!class_exists('WP_Plugin_Template'))
 		{
 			// Do nothing
 		} // END public static function deactivate
-	} // END class WP_Plugin_Template
-} // END if(!class_exists('WP_Plugin_Template'))
+	} // END class WP_Orpheus_Captcha
+} // END if(!class_exists('WP_Orpheus_Captcha'))
 
-if(class_exists('WP_Plugin_Template'))
+if(class_exists('WP_Orpheus_Captcha'))
 {
 	// Installation and uninstallation hooks
-	register_activation_hook(__FILE__, array('WP_Plugin_Template', 'activate'));
-	register_deactivation_hook(__FILE__, array('WP_Plugin_Template', 'deactivate'));
+	register_activation_hook(__FILE__, array('WP_Orpheus_Captcha', 'activate'));
+	register_deactivation_hook(__FILE__, array('WP_Orpheus_Captcha', 'deactivate'));
 
 	// instantiate the plugin class
-	$wp_plugin_template = new WP_Plugin_Template();
+	$wp_orph3us-captcha = new WP_Orpheus_Captcha();
 	
     // Add a link to the settings page onto the plugin page
-    if(isset($wp_plugin_template))
+    if(isset($wp_orph3us-captcha))
     {
         // Add the settings link to the plugins page
         function plugin_settings_link($links)
         { 
-            $settings_link = '<a href="options-general.php?page=wp_plugin_template">Settings</a>'; 
+            $settings_link = '<a href="options-general.php?page=wp_orph3us-captcha">Settings</a>'; 
             array_unshift($links, $settings_link); 
             return $links; 
         }

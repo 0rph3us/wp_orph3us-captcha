@@ -1,7 +1,7 @@
 <?php
-if(!class_exists('WP_Plugin_Template_Settings'))
+if(!class_exists('WP_Orpheus_Captcha_Settings'))
 {
-	class WP_Plugin_Template_Settings
+	class WP_Orpheus_Captcha_Settings
 	{
 		/**
 		 * Construct the plugin object
@@ -19,34 +19,34 @@ if(!class_exists('WP_Plugin_Template_Settings'))
         public function admin_init()
         {
         	// register your plugin's settings
-        	register_setting('wp_plugin_template-group', 'setting_a');
-        	register_setting('wp_plugin_template-group', 'setting_b');
+        	register_setting('wp_orph3us-captcha-group', 'setting_a');
+        	register_setting('wp_orph3us-captcha-group', 'setting_b');
 
         	// add your settings section
         	add_settings_section(
-        	    'wp_plugin_template-section', 
+        	    'wp_orph3us-captcha-section', 
         	    'WP Plugin Template Settings', 
-        	    array(&$this, 'settings_section_wp_plugin_template'), 
-        	    'wp_plugin_template'
+        	    array(&$this, 'settings_section_wp_orph3us-captcha'), 
+        	    'wp_orph3us-captcha'
         	);
         	
         	// add your setting's fields
             add_settings_field(
-                'wp_plugin_template-setting_a', 
+                'wp_orph3us-captcha-setting_a', 
                 'Setting A', 
                 array(&$this, 'settings_field_input_text'), 
-                'wp_plugin_template', 
-                'wp_plugin_template-section',
+                'wp_orph3us-captcha', 
+                'wp_orph3us-captcha-section',
                 array(
                     'field' => 'setting_a'
                 )
             );
             add_settings_field(
-                'wp_plugin_template-setting_b', 
+                'wp_orph3us-captcha-setting_b', 
                 'Setting B', 
                 array(&$this, 'settings_field_input_text'), 
-                'wp_plugin_template', 
-                'wp_plugin_template-section',
+                'wp_orph3us-captcha', 
+                'wp_orph3us-captcha-section',
                 array(
                     'field' => 'setting_b'
                 )
@@ -54,7 +54,7 @@ if(!class_exists('WP_Plugin_Template_Settings'))
             // Possibly do additional admin_init tasks
         } // END public static function activate
         
-        public function settings_section_wp_plugin_template()
+        public function settings_section_wp_orph3us-captcha()
         {
             // Think of this as help text for the section.
             echo 'These settings do things for the WP Plugin Template.';
@@ -83,7 +83,7 @@ if(!class_exists('WP_Plugin_Template_Settings'))
         	    'WP Plugin Template Settings', 
         	    'WP Plugin Template', 
         	    'manage_options', 
-        	    'wp_plugin_template', 
+        	    'wp_orph3us-captcha', 
         	    array(&$this, 'plugin_settings_page')
         	);
         } // END public function add_menu()
@@ -101,5 +101,5 @@ if(!class_exists('WP_Plugin_Template_Settings'))
         	// Render the settings template
         	include(sprintf("%s/templates/settings.php", dirname(__FILE__)));
         } // END public function plugin_settings_page()
-    } // END class WP_Plugin_Template_Settings
-} // END if(!class_exists('WP_Plugin_Template_Settings'))
+    } // END class WP_Orpheus_Captcha_Settings
+} // END if(!class_exists('WP_Orpheus_Captcha_Settings'))
