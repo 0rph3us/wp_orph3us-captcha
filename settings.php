@@ -19,26 +19,26 @@ if(!class_exists('WP_Orpheus_Captcha_Settings'))
         public function admin_init()
         {
         	// register your plugin's settings
-        	register_setting('wp_orph3us-captcha-group', 'setting_a');
+        	register_setting('wp_orph3us-captcha-group', 'setting_key');
         	register_setting('wp_orph3us-captcha-group', 'setting_b');
 
         	// add your settings section
         	add_settings_section(
         	    'wp_orph3us-captcha-section', 
-        	    'WP Plugin Template Settings', 
+        	    'WP 0rph3us Captcha Plugin Settings', 
         	    array(&$this, 'settings_section_wp_orpheus_captcha'), 
         	    'wp_orph3us-captcha'
         	);
         	
         	// add your setting's fields
             add_settings_field(
-                'wp_orph3us-captcha-setting_a', 
-                'Setting A', 
+                'wp_orph3us-captcha-setting_key', 
+                'Secret Key', 
                 array(&$this, 'settings_field_input_text'), 
                 'wp_orph3us-captcha', 
                 'wp_orph3us-captcha-section',
                 array(
-                    'field' => 'setting_a'
+                    'field' => 'setting_key'
                 )
             );
             add_settings_field(
@@ -57,7 +57,7 @@ if(!class_exists('WP_Orpheus_Captcha_Settings'))
         public function settings_section_wp_orpheus_captcha()
         {
             // Think of this as help text for the section.
-            echo 'These settings do things for the WP Plugin Template.';
+            echo 'These settings are for Secret Key';
         }
         
         /**
@@ -80,8 +80,8 @@ if(!class_exists('WP_Orpheus_Captcha_Settings'))
         {
             // Add a page to manage this plugin's settings
         	add_options_page(
-        	    'WP Plugin Template Settings', 
-        	    'WP Plugin Template', 
+        	    'WP 0rph3us Captcha Plugin Settings', 
+        	    'WP 0rph3us Captcha', 
         	    'manage_options', 
         	    'wp_orph3us-captcha', 
         	    array(&$this, 'plugin_settings_page')
