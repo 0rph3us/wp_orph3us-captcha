@@ -68,10 +68,10 @@ if(class_exists('WP_Orpheus_Captcha'))
 	register_deactivation_hook(__FILE__, array('WP_Orpheus_Captcha', 'deactivate'));
 
 	// instantiate the plugin class
-	$wp_orph3us-captcha = new WP_Orpheus_Captcha();
+	$wp_orpheus_captcha = new WP_Orpheus_Captcha();
 	
     // Add a link to the settings page onto the plugin page
-    if(isset($wp_orph3us-captcha))
+    if(isset($wp_orpheus_captcha))
     {
         // Add the settings link to the plugins page
         function plugin_settings_link($links)

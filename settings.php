@@ -26,7 +26,7 @@ if(!class_exists('WP_Orpheus_Captcha_Settings'))
         	add_settings_section(
         	    'wp_orph3us-captcha-section', 
         	    'WP Plugin Template Settings', 
-        	    array(&$this, 'settings_section_wp_orph3us-captcha'), 
+        	    array(&$this, 'settings_section_wp_orpheus_captcha'), 
         	    'wp_orph3us-captcha'
         	);
         	
@@ -54,7 +54,7 @@ if(!class_exists('WP_Orpheus_Captcha_Settings'))
             // Possibly do additional admin_init tasks
         } // END public static function activate
         
-        public function settings_section_wp_orph3us-captcha()
+        public function settings_section_wp_orpheus_captcha()
         {
             // Think of this as help text for the section.
             echo 'These settings do things for the WP Plugin Template.';
